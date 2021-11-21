@@ -6,10 +6,10 @@ var port = 3200;
 var admin = require("./controllers/user.controller");
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017/ControlSucursal', {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect('mongodb+srv://Darklog:Jose.258996@cluster0.fvdkw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true})
     .then(()=>{
             console.log('Conectado a la Base de Datos');
-            app.listen(port, ()=>{
+            app.listen(process.env.PORT || port , ()=>{
                 admin.userAdmin();
                 console.log('Servidor de Express en ejecución');
             })
